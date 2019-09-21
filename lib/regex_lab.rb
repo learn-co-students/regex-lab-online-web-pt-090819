@@ -1,19 +1,29 @@
-def starts_with_a_vowel?(word)
+describe "Working with Regular expressions" do
+  describe "#starts_with_a_vowel?" do
+  def  it "returns true for words starting with a vowel" do
+      match = %w{ afoot Excellent incredible Absolute unreal Inconceivable octopus }
 
-end
+      match.each do |word|
+        expect(starts_with_a_vowel?(word)).to be(true)
+      end
+    end
 
-def words_starting_with_un_and_ending_with_ing(text)
+   def it "returns false for words starting with a consonant" do
+      do_not_match = %w{ chandoo Crenel crooked Flimsy folksy Dog Hermit
+     makeshift Palazzi sixfold Truth }
 
-end
+      do_not_match.each do |word|
+        expect(starts_with_a_vowel?(word)).to be(false)
+      end
+    end
+  end
 
-def words_five_letters_long(text)
-
-end
-
-def first_word_capitalized_and_ends_with_punctuation?(text)
-
-end
-
-def valid_phone_number?(phone)
-
-end
+  describe "#words_starting_with_un_and_ending_with_ing" do
+  def  it "returns an array with the words starting with 'un' and ending with 'ing'" do
+      words_string = "unassuming ambiguous understanding pomp circumstance uninteresting uncompromising grouchy corollary"
+      
+      expect(words_starting_with_un_and_ending_with_ing(words_string).count).to eq(4)
+      expect(words_starting_with_un_and_ending_with_ing(words_string)).to include("understanding")
+      expect(words_starting_with_un_and_ending_with_ing(words_string)).not_to include("pomp")
+    end
+  end
